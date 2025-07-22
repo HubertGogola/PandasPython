@@ -1,56 +1,68 @@
-# ⚽ Football Stats Analysis (Polish Ekstraklasa) – ONLY with Pandas
+# ⚽ Polish Football Data Analysis – Pure Pandas Project
 
-This project analyzes football match data from the Polish Ekstraklasa **using only the Pandas library** in Python.  
-It was created as a self-learning exercise to demonstrate practical skills in data manipulation and exploration without relying on external tools or visualizations.
+This project presents a complete football match data analysis of the Polish Ekstraklasa league using **only the Pandas library in Python**.
 
----
-
-## 🎯 Goal of the Project
-
-- Show that **you can perform full-scale football data analysis using only `pandas`**
-- Practice grouping, filtering, merging, and analyzing sports stats in a clean and code-driven way
-- Avoid using libraries like `matplotlib`, `seaborn`, or `numpy` — focus strictly on `pandas`
+It was built with a clear constraint in mind: **no use of external libraries (like NumPy, Matplotlib, Seaborn, or SciPy)**.  
+The goal was to master the essential `pandas` functions to explore, group, merge, filter, and summarize real-world football data in a clean and replicable way.
 
 ---
 
-## 📂 Dataset
+## 🎯 Project Objective
 
-- File: `POL.xlsx`
-- Source: [football-data.co.uk](https://www.football-data.co.uk/) (or similar)
-- Includes: match results, dates, teams, scores, outcomes, and bookmaker odds
-- Seasons covered: 2012/2013 – 2024/2025
+> **Demonstrate full data analysis capabilities using only `pandas`, with a focus on football match data.**
 
----
-
-## 📊 Key Analyses Performed
-
-- ✅ Total goals per team and season
-- ✅ Goals scored vs conceded
-- ✅ Highest-scoring matches
-- ✅ Most and least efficient teams
-- ✅ Match results vs bookmaker odds
-- ✅ Home vs Away stats
-- ✅ Matches grouped by time, season, team
-
-All of this was done **using only core `pandas` operations**, such as:
-- `.groupby()`
-- `.merge()` / `.join()`
-- `.value_counts()`
-- `.sort_values()`
-- `.loc[]` and `.iloc[]`
-- `.mean()`, `.sum()`, `.max()`, `.idxmax()`
+Specifically:
+- Gain deeper familiarity with Pandas functions (e.g., `.groupby()`, `.merge()`, `.iloc`, etc.)
+- Build a clean and consistent pipeline of data exploration
+- Derive useful football stats without relying on visualization libraries or Jupyter widgets
 
 ---
 
-## 🛠 Tools & Technologies
+## 📁 Dataset Overview
 
-- Python 3.x
-- [Pandas](https://pandas.pydata.org/)
-- Jupyter Notebook (for development only)
+- File: `POL.xlsx` (loaded via `pd.read_excel`)
+- Matches from Polish Ekstraklasa league (multiple seasons)
+- Contains: dates, teams, scores (home/away), match outcomes, time of matches, and betting odds (`PSCH`, `PSCA`, `PSCD`)
 
 ---
 
-## 🙋 Author
+## 🧠 Key Techniques Used
 
-This notebook was created as part of a personal learning challenge to prove fluency in practical pandas usage — without help from visualization tools or data science libraries.
+The following Pandas functions were extensively applied in this project:
 
+| Function         | Description                                     | Usage Count |
+|------------------|--------------------------------------------------|-------------|
+| `.groupby()`     | Aggregation by team, season, or match time       | 12×         |
+| `.merge()`       | Combining goal totals with points per team       | 2×          |
+| `.value_counts()`| Counting matches per team (home/away)           | 2×          |
+| `.iloc[]`        | Selecting rows by position/index                 | 4×          |
+| `.loc[]`         | Selecting rows by condition                      | 1×          |
+| `df[...] = ...`  | Creating new columns (e.g., total goals)         | 4×          |
+| `read_excel()`   | Reading the original Excel file                  | 1×          |
+
+> No visualizations (`.plot()`, `matplotlib`, `seaborn`) were used intentionally.
+
+---
+
+## 📊 Analyses Performed
+
+- Total and average goals by season
+- Home vs away performance
+- Most goals in a single match
+- Most goal-heavy teams
+- Distribution of match times (e.g. when most goals were scored)
+- Team points based on match results (3/1/0 system)
+- Join/merge operations to compare stats across dimensions
+
+---
+
+## 🧩 Example: Combining Goals + Points via `merge()`
+
+```python
+team_stats = pd.merge(
+    total_goals.rename('GoalsScored'),
+    home_points.rename('HomePoints'),
+    left_index=True,
+    right_index=True,
+    how='inner'
+)
