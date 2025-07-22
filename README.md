@@ -34,8 +34,3 @@ It is designed as a hands-on exercise to explore real-world data, perform groupi
 - Matplotlib (optional for visualization)
 
 ---
-
-## ▶️ Example: Total Goals per Season
-
-```python
-df.groupby('Season')[['HG', 'AG']].sum().sum(axis=1).rename('TotalGoals')
