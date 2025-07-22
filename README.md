@@ -1,7 +1,15 @@
-# ⚽ Football Stats Analysis (Polish Ekstraklasa) with Pandas
+# ⚽ Football Stats Analysis (Polish Ekstraklasa) – ONLY with Pandas
 
-This project analyzes football match data from the Polish Ekstraklasa using Python and the Pandas library.  
-It is designed as a hands-on exercise to explore real-world data, perform grouping, filtering, and summarization, and draw statistical insights.
+This project analyzes football match data from the Polish Ekstraklasa **using only the Pandas library** in Python.  
+It was created as a self-learning exercise to demonstrate practical skills in data manipulation and exploration without relying on external tools or visualizations.
+
+---
+
+## 🎯 Goal of the Project
+
+- Show that **you can perform full-scale football data analysis using only `pandas`**
+- Practice grouping, filtering, merging, and analyzing sports stats in a clean and code-driven way
+- Avoid using libraries like `matplotlib`, `seaborn`, or `numpy` — focus strictly on `pandas`
 
 ---
 
@@ -9,28 +17,40 @@ It is designed as a hands-on exercise to explore real-world data, perform groupi
 
 - File: `POL.xlsx`
 - Source: [football-data.co.uk](https://www.football-data.co.uk/) (or similar)
-- Contains match results, dates, teams, scores, and bookmaker odds
-- Seasons: 2012/2013 – 2024/2025
+- Includes: match results, dates, teams, scores, outcomes, and bookmaker odds
+- Seasons covered: 2012/2013 – 2024/2025
 
 ---
 
-## 📊 Key Analyses
+## 📊 Key Analyses Performed
 
-- ✅ Total goals per season
-- ✅ Most goal-scoring teams
-- ✅ Most goals conceded
-- ✅ Goal difference rankings
+- ✅ Total goals per team and season
+- ✅ Goals scored vs conceded
 - ✅ Highest-scoring matches
-- ✅ Bookmaker odds (Pinnacle, Betfair) vs actual results
-- ✅ Distribution of match outcomes (home win, draw, away win)
+- ✅ Most and least efficient teams
+- ✅ Match results vs bookmaker odds
+- ✅ Home vs Away stats
+- ✅ Matches grouped by time, season, team
+
+All of this was done **using only core `pandas` operations**, such as:
+- `.groupby()`
+- `.merge()` / `.join()`
+- `.value_counts()`
+- `.sort_values()`
+- `.loc[]` and `.iloc[]`
+- `.mean()`, `.sum()`, `.max()`, `.idxmax()`
 
 ---
 
-## 📌 Tools & Technologies
+## 🛠 Tools & Technologies
 
 - Python 3.x
 - [Pandas](https://pandas.pydata.org/)
-- [Jupyter Notebook](https://jupyter.org/) / Google Colab
-- Matplotlib (optional for visualization)
+- Jupyter Notebook (for development only)
 
 ---
+
+## 🙋 Author
+
+This notebook was created as part of a personal learning challenge to prove fluency in practical pandas usage — without help from visualization tools or data science libraries.
+
